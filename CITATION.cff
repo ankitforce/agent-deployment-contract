@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this deployment-contract starter, please cite the companion repository."
+title: "Agent Deployment Contract"
+authors:
+  - family-names: Kumar
+    given-names: Ankit
+date-released: 2026-11-15
+url: "https://github.com/ankitforce/agent-deployment-contract"

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Deployment Contract",
+  "type": "object",
+  "required": ["agent", "runtime", "placement", "identity_and_tools", "human_control", "evidence"],
+  "properties": {
+    "agent": {"type": "object", "required": ["name", "owner", "purpose"], "properties": {"name": {"type": "string"}, "owner": {"type": "string"}, "purpose": {"type": "string"}}},
+    "runtime": {"type": "object", "required": ["platform_version", "image_digest", "startup_behavior", "state_locations"], "properties": {"platform_version": {"type": "string"}, "image_digest": {"type": "string"}, "startup_behavior": {"type": "string"}, "state_locations": {"type": "array", "items": {"type": "string"}}}},
+    "placement": {"type": "object", "required": ["approved_regions", "network_boundary", "residency_requirement", "rollback_owner"], "properties": {"approved_regions": {"type": "array", "items": {"type": "string"}}, "network_boundary": {"type": "string"}, "residency_requirement": {"type": "string"}, "rollback_owner": {"type": "string"}}},
+    "identity_and_tools": {"type": "object", "required": ["execution_principal", "tools"], "properties": {"execution_principal": {"type": "string"}, "tools": {"type": "array", "items": {"type": "object", "required": ["name", "policy", "allowed_operations", "owner"], "properties": {"name": {"type": "string"}, "policy": {"type": "string"}, "allowed_operations": {"type": "array", "items": {"type": "string"}}, "owner": {"type": "string"}}}}}},
+    "human_control": {"type": "object", "required": ["approval_required_for", "stop_condition", "escalation_owner"], "properties": {"approval_required_for": {"type": "array", "items": {"type": "string"}}, "stop_condition": {"type": "string"}, "escalation_owner": {"type": "string"}}},
+    "evidence": {"type": "object", "required": ["retained_records", "retention_period", "owner"], "properties": {"retained_records": {"type": "array", "items": {"type": "string"}}, "retention_period": {"type": "string"}, "owner": {"type": "string"}}}
+  },
+  "additionalProperties": false
+}

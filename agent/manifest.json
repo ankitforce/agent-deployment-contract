@@ -1,0 +1,9 @@
+{
+  "name": "agent-deployment-contract",
+  "version": "1.0.0",
+  "canonical_article_url": "https://ankitkumar3514.substack.com/p/agent-deployment-contract",
+  "public_repo_url": "https://github.com/ankitforce/agent-deployment-contract",
+  "read_order": ["README.md", "checklists/runtime-change-review.md", "schemas/agent-deployment-contract.schema.json", "templates/agent-deployment-contract.example.json"],
+  "tasks": ["Validate a deployment contract", "Identify unowned access or evidence gaps", "Draft a runtime-change review summary"],
+  "safety_boundaries": ["No deployment execution", "No credentials", "No invented permissions"]
+}

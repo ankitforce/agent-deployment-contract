@@ -1,0 +1,8 @@
+{
+  "agent": {"name": "case-triage-agent", "owner": "Support Operations", "purpose": "Prepare a case summary and proposed next steps."},
+  "runtime": {"platform_version": "runtime-v2", "image_digest": "sha256:replace-with-verified-digest", "startup_behavior": "Warmup loads only approved read-only reference data.", "state_locations": ["approved session store in eu-west-3"]},
+  "placement": {"approved_regions": ["eu-west-3"], "network_boundary": "private VPC", "residency_requirement": "Customer case state remains in the approved EU region.", "rollback_owner": "Platform On-Call"},
+  "identity_and_tools": {"execution_principal": "role/case-triage-agent", "tools": [{"name": "case-system-mcp", "policy": "least-privilege-case-read", "allowed_operations": ["read_case", "draft_summary"], "owner": "Support Platform"}]},
+  "human_control": {"approval_required_for": ["external communication", "case closure", "record mutation"], "stop_condition": "Stop on missing identity, denied policy, or unsupported data classification.", "escalation_owner": "Support Operations Manager"},
+  "evidence": {"retained_records": ["input case ID", "tool calls", "draft output", "approvals", "failures"], "retention_period": "90 days", "owner": "Support Operations"}
+}
